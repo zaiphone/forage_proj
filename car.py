@@ -28,7 +28,7 @@ class Car():
                         result=True
                 case "Nubbin":
                     if datetime.year(datetime.today()-datetime.strptime(self.last_service_date,'%Y/%m/%d'))>4:
-                        result=True
+                        print('Hello')
         return result
 mycar=Car('sternman','Nubbin')
 mycar.needs_service(2000,1000,False,'2017/10/11')   
