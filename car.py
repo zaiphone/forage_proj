@@ -27,12 +27,12 @@ class Car():
                     if datetime.year(datetime.today()-datetime.strptime(self.last_service_date,'%Y/%m/%d'))>2:
                         result=True
                 case "Nubbin":
-                    service_date = years_past   (self.last_service_date, 4)
-                    if date_which_battery_should_be_serviced_by < self.current_date:
-                        return True
+                    service_date = years_past(self.last_service_date, 4)
+                    if service_date < datetime.today():
+                        result=True
         return result
 mycar=Car('sternman','Nubbin')
-mycar.needs_service(2000,1000,False,'2017/10/11')   
+mycar.needs_service(2000,1000,False,'2016/10/11')   
 
                 
                 
