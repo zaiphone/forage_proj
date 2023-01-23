@@ -1,5 +1,4 @@
 from datetime import datetime
-from dateutil.parser import parse, parserinfo
 class Car():
     def __init__(self, engine_type, battery):
         self.engine_type = engine_type
@@ -23,16 +22,16 @@ class Car():
             self.last_service_date=last_service_date
             match self.battery:
                 case "Spindler":
-                    convstr=datetime.strptime(self.last_service_date,'%Y/%m/%d')
-                    if dateutil.relativedelta(datetime.today(),convstr).years>2:
+                    convstr=datetime.strptime(self.last_service_date,'%Y-%m-%d')
+                    if (datetime.today()-convstr).days>730:
                         result=True
                 case "Nubbin":
-                    convstr=datetime.strptime(self.last_service_date,'%Y/%m/%d')
-                    if dateutil.relativedelta(datetime.today(),convstr).years>4:
+                    convstr=datetime.strptime(self.last_service_date,'%Y-%m-%d')
+                    if (datetime.today()-convstr).days>1460:
                         result=True
         return result
 mycar=Car('sternman','Nubbin')
-mycar.needs_service(2000,1000,False,'2016/10/11')   
+mycar.needs_service(2000,1000,False,'2016-10-11')   
 
                 
                 
