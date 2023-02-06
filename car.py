@@ -26,7 +26,7 @@ class Car():
             match self.battery:
                 case "Spindler":
                     convstr=datetime.strptime(self.last_service_date,'%Y-%m-%d')
-                    if (datetime.today()-convstr).days>730:
+                    if (datetime.today()-convstr).days>1095:
                         self.result=True
                 case "Nubbin":
                     convstr=datetime.strptime(self.last_service_date,'%Y-%m-%d')
